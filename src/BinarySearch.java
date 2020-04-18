@@ -75,8 +75,28 @@ public class BinarySearch {
     }
 
     public double average(){
-        double average = sumRec(root)/countNumberOfNodes(root);
-        return average;
+        return sumRec(root)/countNumberOfNodes(root);
     }
 
+    private int maximumRec(Node node){
+        if(node.right == null){
+            return node.key;
+        }
+        return maximumRec(node.right);
+    }
+
+    public int maximum(){
+        return maximumRec(root);
+    }
+
+    private int minimumRec(Node node){
+        if(node.left == null){
+            return node.key;
+        }
+        return minimumRec(node.left);
+    }
+
+    public int minimum(){
+        return minimumRec(root);
+    }
 }
